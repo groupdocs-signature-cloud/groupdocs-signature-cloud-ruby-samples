@@ -1,38 +1,32 @@
-# Import module
-from groupdocs_signature_cloud.rest import ApiException
-from Common_Utilities.Utils import Common_Utilities
-from groupdocs_signature_cloud.models.pdf_verify_qr_code_options_data import PdfVerifyQRCodeOptionsData
-from groupdocs_signature_cloud.models.requests.post_verification_qr_code_request import PostVerificationQrCodeRequest
+require 'groupdocs_signature_cloud'
+require 'groupdocs_signature_cloud/models/cells_verify_qr_code_options_data.rb'
+require 'groupdocs_signature_cloud/models/requests/post_verification_qr_code_request.rb'
+require 'common_utilities/Utils.rb'
 
-class Verify_Signature_QRCode:
+class Verify_Signature_QRCode
+  def self.Post_Verify_Signature_QRCode()
 
-	@staticmethod
-	def Post_Verify_Signature_QRCode():
+    # Getting instance of the API
+    api = Common_Utilities.Get_SignatureApi_Instance()
 
-		try:
-			# Getting instance of the API
-			api = Common_Utilities.Get_SignatureApi_Instance();
+    fileName = "with-overflowed-text.xlsx"
+    password = ""
+    folder = ""
 
-			fileName = "sample2.pdf"
-			password = ""
-			folder = ""
+    options = GroupDocsSignatureCloud::CellsVerifyQRCodeOptionsData.new()
 
-			options = PdfVerifyQRCodeOptionsData()
+    # set barcode properties
+    options.qr_code_type_name ="Aztec"
+    options.text = "12345678"
+    # set match type
+    options.match_type ="Contains"
+    #set pages for search
+    options.document_page_number = 1
 
-			# set qr_code properties
-			options.qr_code_type_name ="Aztec"
-			options.text = "12345678"
-			# set match type
-			options.match_type ="Contains"
-			#set pages for verify
-			options.document_page_number = 1
-				
-			request = PostVerificationQrCodeRequest(fileName, options, password, folder,Common_Utilities.storage_name)
-			
-			respose = api.post_verification_qr_code(request)
+    request = GroupDocsSignatureCloud::PostVerificationQrCodeRequest.new(fileName, options, password, folder, $storage_name)
 
-			print("Signature Verification Result: "+ str(respose.result));
+    response = api.post_verification_qr_code(request)
 
-		except ApiException as e:
-			print("Exception when calling SignatureApi: {0}".format(e.message))
-			
+    puts("Signature Verification Result: " + (response.result).to_s)
+  end
+end

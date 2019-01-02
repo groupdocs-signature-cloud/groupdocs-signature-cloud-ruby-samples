@@ -1,29 +1,24 @@
-# Import module
-from groupdocs_signature_cloud.rest import ApiException
-from Common_Utilities.Utils import Common_Utilities
-from groupdocs_signature_cloud.models.cells_search_digital_options_data import CellsSearchDigitalOptionsData
-from groupdocs_signature_cloud.models.requests.post_search_digital_request import PostSearchDigitalRequest
+# Load the gem
+require 'groupdocs_signature_cloud'
+require 'groupdocs_signature_cloud/models/cells_search_digital_options_data.rb'
+require 'groupdocs_signature_cloud/models/requests/post_digital_from_url_request.rb'
+require 'common_utilities/Utils.rb'
 
-class Search_Signature_Digital_From_Url:
+class Search_Signature_Digital_From_Url
+  def self.Post_Search_Signature_Digital_From_Url()
 
-	@staticmethod
-	def Post_Search_Signature_Digital_From_Url():
+    # Getting instance of the API
+    api = Common_Utilities.Get_SignatureApi_Instance()
 
-		try:
-			# Getting instance of the API
-			api = Common_Utilities.Get_SignatureApi_Instance();
+    url = "https://www.dropbox.com/s/o9k7gweapq8k15l/SignedForVerificationAll.xlsx?dl=1"
+    password = ""
 
-			Url = "https://www.dropbox.com/s/o9k7gweapq8k15l/SignedForVerificationAll.xlsx?dl=1"
-			password = ""
+    options = GroupDocsSignatureCloud::CellsSearchDigitalOptionsData.new()
 
-			options = CellsSearchDigitalOptionsData()
+    request = GroupDocsSignatureCloud::PostSearchDigitalFromUrlRequest.new(url, options, password,  $storage_name)
 
-			request = PostSearchDigitalRequest(Url, options, password, Common_Utilities.storage_name)
-			
-			response = api.post_search_digital(request)
+    response = api.post_search_digital_from_url(request)
 
-			print("Response: " + str(response));
-
-		except ApiException as e:
-			print("Exception when calling SignatureApi: {0}".format(e.message))
-			
+    puts("Searched Count: " + ((response.signatures).length).to_s)
+  end
+end

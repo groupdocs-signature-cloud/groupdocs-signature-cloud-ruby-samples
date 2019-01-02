@@ -59,6 +59,6 @@ class Signature_Barcode_From_Url
       
       api.post_barcode_from_url(request)
 
-      puts("Document Signed");
+      puts("Document Signed")
   end
 end

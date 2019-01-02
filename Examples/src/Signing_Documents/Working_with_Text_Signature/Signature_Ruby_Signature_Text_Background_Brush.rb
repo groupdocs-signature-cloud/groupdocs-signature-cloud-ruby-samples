@@ -1,79 +1,74 @@
-# Import module
-from groupdocs_signature_cloud.rest import ApiException
-from Common_Utilities.Utils import Common_Utilities
-from groupdocs_signature_cloud.models.padding_data import PaddingData
-from groupdocs_signature_cloud.models.pages_setup_data import PagesSetupData
-from groupdocs_signature_cloud.models.color import Color
-from groupdocs_signature_cloud.models.pdf_sign_text_options_data import PdfSignTextOptionsData
-from groupdocs_signature_cloud.models.signature_font_data import SignatureFontData
-from groupdocs_signature_cloud.models.requests.post_text_request import PostTextRequest
-from groupdocs_signature_cloud.models.linear_gradient_brush_data import LinearGradientBrushData
+# Load the gem
+require 'groupdocs_signature_cloud'
+require 'groupdocs_signature_cloud/models/pdf_sign_text_options_data.rb'
+require 'groupdocs_signature_cloud/models/padding_data.rb'
+require 'groupdocs_signature_cloud/models/pages_setup_data.rb'
+require 'groupdocs_signature_cloud/models/requests/post_text_request.rb'
+require 'groupdocs_signature_cloud/models/color.rb'
+require 'groupdocs_signature_cloud/models/signature_font_data'
+require 'groupdocs_signature_cloud/models/linear_gradient_brush_data'
+require 'common_utilities/Utils.rb'
 
-class Signature_Text_Background_Brush:
+class Signature_Text_Background_Brush
+  def self.Post_Signature_Text_Background_Brush()
 
-	@staticmethod
-	def Post_Signature_Text_Background_Brush():
+    # Getting instance of the API
+    api = Common_Utilities.Get_SignatureApi_Instance()
 
-		try:
-			# Getting instance of the API
-			api = Common_Utilities.Get_SignatureApi_Instance();
+    fileName = "sample2.pdf"
+    password = ""
+    folder = ""
 
-			fileName = "sample2.pdf"
-			password = ""
-			folder = ""
+    options = GroupDocsSignatureCloud::PdfSignTextOptionsData.new()
 
-			options = PdfSignTextOptionsData()
+    # set text properties
+    # get colors
+    clrDarkBlue = GroupDocsSignatureCloud::Color.new("#000700")
+    clrLightBlue = GroupDocsSignatureCloud::Color.new("#00D700")
 
-			# set text properties
-			options.text = "12345678"
-			font = SignatureFontData("Arial", 12, True, False, False)
-			options.font = font
-			# set position on page
-			options.left = 100
-			options.top = 100
-			options.width = 100
-			options.height = 100
-			options.location_measure_type = "Pixels"
-			options.size_measure_type = "Pixels"
-			options.stretch = "None"
-			options.rotation_angle = 45
-			options.horizontal_alignment = "Left"
-			options.vertical_alignment = "Top"
-			# set margin
-			margin = PaddingData(all = 150)		
-			options.margin = margin
-			options.margin_measure_type = "Pixels"
-			# set colors
-			# get colors
-			clrFore = Color("#ff0000")
-			clrBoard = Color("#121212")
-			clrBack = Color("#ffaaaa")
-			clrDarkBlue = Color("#000700")
-			clrLightBlue = Color("#333700")
+    # background brush
+    backgroundBrush = GroupDocsSignatureCloud::LinearGradientBrushData.new()
+    backgroundBrush.start_color = clrDarkBlue
+    backgroundBrush.end_color = clrLightBlue
+    backgroundBrush.angle = 0.0
+    backgroundBrush.brush_type = "LinearGradientBrush"
 
-			# background brush
-			backgroundBrush = LinearGradientBrushData()
-			backgroundBrush.start_color = clrDarkBlue
-			backgroundBrush.end_color = clrLightBlue
-			backgroundBrush.angle = 0.0
-			backgroundBrush.brush_type = "LinearGradientBrush"
+    options.background_brush = backgroundBrush
 
-			options.background_brush = backgroundBrush
-			options.fore_color = clrFore
-			options.border_color = clrBoard
-			options.background_color = clrBack
-			#set pages for signing
-			options.sign_all_pages = False
-			options.document_page_number = 1
-			pagesSetup = PagesSetupData(True, False, False, False)		
-			options.pages_setup = pagesSetup	   
+    options.text = "John Smith"
+    options.font = GroupDocsSignatureCloud::SignatureFontData.new({"FontFamily"=>"Arial", "FontSize"=>12, "Bold"=>true, "Italic"=>false, "Underline"=>false})
+    # set position on page
+    options.left = 100
+    options.top = 100
+    options.width = 100
+    options.height = 100
+    options.location_measure_type = "Pixels"
+    options.size_measure_type = "Pixels"
+    options.stretch = "None"
+    options.rotation_angle = 45
+    options.horizontal_alignment = "None"
+    options.vertical_alignment = "None"
+    # set margin
+    margin = GroupDocsSignatureCloud::PaddingData.new(all = 150)
+    options.margin = margin
+    options.margin_measure_type = "Pixels"
+    # set colors
+    clrFore = GroupDocsSignatureCloud::Color.new("#ff0000")
+    options.fore_color = clrFore
+    clrBoard = GroupDocsSignatureCloud::Color.new("#121212")
+    options.border_color = clrBoard
+    clrBack = GroupDocsSignatureCloud::Color.new("#ffaaaa")
+    options.background_color = clrBack
+    #set pages for signing
+    options.sign_all_pages = false
+    options.document_page_number = 1
+    pagesSetup = GroupDocsSignatureCloud::PagesSetupData.new({ 'FirstPage' => true,  'LastPage' => true, 'OddPages' => true, 'EvenPages' => true})
+    options.pages_setup = pagesSetup
 
-			request = PostTextRequest(fileName, options, password, folder, Common_Utilities.storage_name)
-			
-			api.post_text(request)
+    request = GroupDocsSignatureCloud::PostTextRequest.new(fileName, options, password, folder, $storage_name)
 
-			print("Document Signed");
+    api.post_text(request)
 
-		except ApiException as e:
-			print("Exception when calling SignatureApi: {0}".format(e.message))
-			
+    puts("Document Signed")
+  end
+end

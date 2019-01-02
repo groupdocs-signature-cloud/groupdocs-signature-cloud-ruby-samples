@@ -1,38 +1,25 @@
-# Import module
-from groupdocs_signature_cloud.rest import ApiException
-from Common_Utilities.Utils import Common_Utilities
-from groupdocs_signature_cloud.models.cells_search_qr_code_options_data import CellsSearchQRCodeOptionsData
-from groupdocs_signature_cloud.models.requests.post_search_qr_code_request import PostSearchQrCodeRequest
+# Load the gem
+require 'groupdocs_signature_cloud'
+require 'groupdocs_signature_cloud/models/pdf_search_qr_code_options_data.rb'
+require 'groupdocs_signature_cloud/models/requests/post_qr_code_request.rb'
+require 'common_utilities/Utils.rb'
 
-class Search_Signature_QRCode:
+class Search_Signature_QRCode
+  def self.Post_Search_Signature_QRCode()
 
-	@staticmethod
-	def Post_Search_Signature_QRCode():
+    # Getting instance of the API
+    api = Common_Utilities.Get_SignatureApi_Instance()
 
-		try:
-			# Getting instance of the API
-			api = Common_Utilities.Get_SignatureApi_Instance();
+    fileName = "sample2.pdf"
+    password = ""
+    folder = ""
 
-			fileName = "with-overflowed-text.xlsx"
-			password = ""
-			folder = ""
+    options = GroupDocsSignatureCloud::PdfSearchQRCodeOptionsData.new()
 
-			options = CellsSearchQRCodeOptionsData()
+    request = GroupDocsSignatureCloud::PostSearchQrCodeRequest.new(fileName, options, password, folder, $storage_name)
 
-			# set qrcode properties
-			options.qr_code_type_name ="Aztec"
-			options.text = "12345678"
-			# set match type
-			options.match_type ="Contains"
-			#set pages for search
-			options.document_page_number = 1
+    response = api.post_search_qr_code(request)
 
-			request = PostSearchQrCodeRequest(fileName, options, password, folder, Common_Utilities.storage_name)
-			
-			response = api.post_search_qr_code(request)
-
-			print("Searched Count: " + str(len(response.signatures)));
-
-		except ApiException as e:
-			print("Exception when calling SignatureApi: {0}".format(e.message))
-			
+    puts("Searched Count: " + ((response.signatures).length).to_s)
+  end
+end

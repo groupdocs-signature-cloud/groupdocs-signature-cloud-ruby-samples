@@ -60,6 +60,6 @@ class Signature_Barcode
 			
 			api.post_barcode(request)
 
-			puts("Document Signed");
+			puts("Document Signed")
 	end
 end

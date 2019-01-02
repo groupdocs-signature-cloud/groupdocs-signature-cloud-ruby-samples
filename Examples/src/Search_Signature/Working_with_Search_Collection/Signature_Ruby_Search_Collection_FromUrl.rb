@@ -1,47 +1,31 @@
-# Import module
-from groupdocs_signature_cloud.rest import ApiException
-from Common_Utilities.Utils import Common_Utilities
-from groupdocs_signature_cloud.models.cells_search_barcode_options_data import CellsSearchBarcodeOptionsData
-from groupdocs_signature_cloud.models.pdf_sign_barcode_options_data import PdfSignBarcodeOptionsData
-from groupdocs_signature_cloud.models.pdf_sign_qr_code_options_data import PdfSignQRCodeOptionsData
-from groupdocs_signature_cloud.models.requests.post_search_collection_from_url_request import PostSearchCollectionFromUrlRequest
+# Load the gem
+require 'groupdocs_signature_cloud'
+require 'groupdocs_signature_cloud/models/cells_sign_barcode_options_data.rb'
+require 'groupdocs_signature_cloud/models/cells_sign_qr_code_options_data.rb'
+require 'groupdocs_signature_cloud/models/sign_options_collection_data.rb'
+require 'groupdocs_signature_cloud/models/requests/post_search_collection_from_url_request.rb'
+require 'common_utilities/Utils.rb'
 
-class Search_Collection_From_Url:
+class Search_Collection_From_Url
+  def self.Post_Search_Collection_From_Url()
 
-	@staticmethod
-	def Post_Search_Collection_From_Url():
+    # Getting instance of the API
+    api = Common_Utilities.Get_SignatureApi_Instance()
 
-		try:
-			# Getting instance of the API
-			api = Common_Utilities.Get_SignatureApi_Instance();
+    url = "https://www.dropbox.com/s/o9k7gweapq8k15l/SignedForVerificationAll.xlsx?dl=1"
+    password = ""
 
-			Url = "https://www.dropbox.com/s/o9k7gweapq8k15l/SignedForVerificationAll.xlsx?dl=1"
-			password = ""
+    # set barcode properties
+    optionsBarcode = GroupDocsSignatureCloud::CellsSignBarcodeOptionsData.new()
+    # set barcode properties
+    optionsQRCode = GroupDocsSignatureCloud::CellsSignQRCodeOptionsData.new()
 
-			collection = CellsSearchBarcodeOptionsData()
-			
-			# set barcode properties
-			optionsBarcode = PdfSignBarcodeOptionsData()
-			optionsBarcode.barcode_type_name ="Code39Standard"
-			optionsBarcode.text = "12345678"
-			optionsBarcode.match_type ="Contains"
-			optionsBarcode.document_page_number = 1
-			
-			# set barcode properties
-			optionsQRCode = PdfSignQRCodeOptionsData()
-			optionsQRCode.qr_code_type_name ="Aztec"
-			optionsQRCode.text = "12345678"
-			optionsQRCode.match_type ="Contains"
-			optionsQRCode.document_page_number = 1
+    collection = GroupDocsSignatureCloud::SignOptionsCollectionData.new(Items: [optionsBarcode, optionsQRCode])
 
-			collection._items = [optionsBarcode, optionsQRCode]
-			
-			request = PostSearchCollectionFromUrlRequest(Url, collection, password, Common_Utilities.storage_name)
-			
-			response = api.post_search_collection_from_url(request)
+    request = GroupDocsSignatureCloud::PostSearchCollectionFromUrlRequest.new(url, collection, password, $storage_name)
 
-			print("Searched Count: " + str(len(response.signatures)));
+    response = api.post_search_collection_from_url(request)
 
-		except ApiException as e:
-			print("Exception when calling SignatureApi: {0}".format(e.message))
-			
+    puts("Searched Count: " + ((response.signatures).length).to_s)
+  end
+end

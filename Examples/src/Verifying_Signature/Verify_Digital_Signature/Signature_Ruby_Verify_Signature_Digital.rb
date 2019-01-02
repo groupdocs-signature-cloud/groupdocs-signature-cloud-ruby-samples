@@ -1,33 +1,28 @@
-# Import module
-from groupdocs_signature_cloud.rest import ApiException
-from Common_Utilities.Utils import Common_Utilities
-from groupdocs_signature_cloud.models.requests.post_verification_digital_request import PostVerificationDigitalRequest
-from groupdocs_signature_cloud.models.pdf_verify_digital_options_data import PdfVerifyDigitalOptionsData
+require 'groupdocs_signature_cloud'
+require 'groupdocs_signature_cloud/models/pdf_verify_digital_options_data.rb'
+require 'groupdocs_signature_cloud/models/requests/post_verification_digital_request.rb'
+require 'common_utilities/Utils.rb'
 
-class Verify_Signature_Digital:
+class Verify_Signature_Digital
+  def self.Post_Verify_Signature_Digital()
 
-	@staticmethod
-	def Post_Verify_Signature_Digital():
+    # Getting instance of the API
+    api = Common_Utilities.Get_SignatureApi_Instance()
 
-		try:
-			# Getting instance of the API
-			api = Common_Utilities.Get_SignatureApi_Instance();
+    fileName = "sample2.pdf"
+    password = ""
+    folder = ""
 
-			fileName = "sample2.pdf"
-			password = ""
-			folder = ""
+    options = GroupDocsSignatureCloud::PdfVerifyDigitalOptionsData.new()
 
-			options = PdfVerifyDigitalOptionsData()
+    # set digital properties
+    options.certificate_guid = "temp.pfx"
+    options.password = ""
 
-			# set digital properties
-			options.certificate_guid = "temp.pfx"
-			options.password = "12345678"
-			
-			request = PostVerificationDigitalRequest(fileName, options, password, folder,Common_Utilities.storage_name)
-			
-			respose = api.post_verification_digital(request)
+    request = GroupDocsSignatureCloud::PostVerificationDigitalRequest.new(fileName, options, password, folder, $storage_name)
 
-			print("Signature Verification Result: "+ str(respose.result));
+    response = api.post_verification_digital(request)
 
-		except ApiException as e:
-			print("Exception when calling SignatureApi: {0}".format(e.message))
+    puts("Signature Verification Result: " + (response.result).to_s)
+  end
+end
