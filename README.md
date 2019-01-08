@@ -2,7 +2,7 @@
 
 [GroupDocs.Signature Cloud SDK for Ruby](https://products.groupdocs.cloud/Signature) allows you to seamlessly enhance your application with the capability to create, verify and search different types of signatures in documents available on the ‎cloud. You can work with various types of signatures such as, text-based signatures, image signatures, ‎barcode signatures, QR-Code signatures, digital signatures, and stamp signatures. Using ‎GroupDocs.Signature Cloud SDK for Python, you can apply signatures to portable or simple ‎documents, spreadsheets, presentations, and images for supported file formats. This highly secure ‎downloadable signature SDK for Python is very customizable to use.‎
 
-This repository contains [Examples](Examples) projects for [GroupDocs.Signature Cloud SDK for Ruby](https://products.groupdocs.cloud/Signature/Ruby) to help you learn and write your own applications.
+This repository contains [Examples](Examples) projects for [GroupDocs.Signature Cloud SDK for Ruby](https://products.groupdocs.cloud/Signature) to help you learn and write your own applications.
 
 <p align="center">
 
