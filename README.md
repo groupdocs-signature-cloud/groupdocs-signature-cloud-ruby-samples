@@ -19,6 +19,7 @@ Directory | Description
 
 + **Website:** [www.GroupDocs.cloud](http://www.GroupDocs.cloud)
 + **Product Home:** [GroupDocs.Signature Cloud SDK for Ruby](https://products.groupdocs.cloud/Signature)
++ **Download:** [Download GroupDocs.Signature Cloud SDK for Ruby](https://rubygems.org/gems/groupdocs_signature_cloud/)
 + **Documentation:** [GroupDocs.Signature Cloud SDK Documentation](https://docs.groupdocs.cloud/display/Signaturecloud/Home)
 + **Free Support:** [GroupDocs.Signature Cloud SDK Free Support Forum](https://forum.groupdocs.cloud/c/Signature)
 + **Blog:** [GroupDocs.Signature Cloud SDK Blog](https://blog.groupdocs.cloud/category/Signature/)
