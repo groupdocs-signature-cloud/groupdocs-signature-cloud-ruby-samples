@@ -18,6 +18,5 @@
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.dltk.ruby.core.nature</nature>
-		<nature>org.python.pydev.pythonNature</nature>
 	</natures>
 </projectDescription>

@@ -1,183 +1,198 @@
-require 'Supported_File_Formats\Signature_Ruby_Supported_FileFormats.rb'
-require 'Document_Information\Signature_Ruby_DocumentInfo_File.rb'
-require 'Document_Information\Signature_Ruby_DocumentInfo_URL.rb'
-require 'Supported_Barcodes\Signature_Ruby_Supported_Barcodes.rb'
-require 'Supported_QRcodes\Signature_Ruby_Supported_QRcodes.rb'
-require 'Signing_Documents/Working_with_Barcode_Signature/Signature_Ruby_Signature_Barcode.rb'
-require 'Signing_Documents/Working_with_Barcode_Signature/Signature_Ruby_Signature_Barcode_From_URL.rb'
-require 'Signing_Documents/Working_with_Digital_Signature/Signature_Ruby_Signature_Digital.rb'
-require 'Signing_Documents/Working_with_Digital_Signature/Signature_Ruby_Signature_Digital_URL.rb'
-require 'Signing_Documents/Working_with_Image_Signature/Signature_Ruby_Signature_Image.rb'
-require 'Signing_Documents/Working_with_Image_Signature/Signature_Ruby_Signature_Image_URL.rb'
-require 'Signing_Documents/Working_with_QR_Code_Signature/Signature_Ruby_Signature_QRCode.rb'
-require 'Signing_Documents/Working_with_QR_Code_Signature/Signature_Ruby_Signature_QRCode_URL.rb'
-require 'Signing_Documents/Working_with_QR_Code_Signature/Signature_Ruby_Signature_QRCode_Logo_Image.rb'
-require 'Signing_Documents/Working_with_Signature_Collection/Signature_Ruby_Signature_Collection.rb'
-require 'Signing_Documents/Working_with_Signature_Collection/Signature_Ruby_Signature_Collection_FromUrl.rb'
-require 'Signing_Documents/Working_with_Stamp_Signature/Signature_Ruby_Signature_Stamp.rb'
-require 'Signing_Documents/Working_with_Stamp_Signature/Signature_Ruby_Signature_Stamp_URL.rb'
-require 'Signing_Documents/Working_with_Stamp_Signature/Signature_Ruby_Signature_Stamp_Background_Brush.rb'
-require 'Signing_Documents/Working_with_Text_Signature/Signature_Ruby_Signature_Text.rb'
-require 'Signing_Documents/Working_with_Text_Signature/Signature_Ruby_Signature_Text_URL.rb'
-require 'Signing_Documents/Working_with_Text_Signature/Signature_Ruby_Signature_Text_Background_Brush.rb'
-require 'Signing_Documents/Working_with_Text_Signature/Signature_Ruby_Signature_Text_Align_Text.rb'
-require 'Search_Signature/Search_Barcode_Signature/Signature_Ruby_Search_Signature_Barcode.rb'
-require 'Search_Signature/Search_Barcode_Signature/Signature_Ruby_Search_Signature_Barcode_URL.rb'
-require 'Search_Signature/Search_Digital_Signature/Signature_Ruby_Search_Signature_Digital.rb'
-require 'Search_Signature/Search_Digital_Signature/Signature_Ruby_Search_Signature_Digital_URL.rb'
-require 'Search_Signature/Search_QRCode_Signature/Signature_Ruby_Search_Signature_QRCode.rb'
-require 'Search_Signature/Search_QRCode_Signature/Signature_Ruby_Search_Signature_QRCode_URL.rb'
-require 'Search_Signature/Working_with_Search_Collection/Signature_Ruby_Search_Collection.rb'
-require 'Search_Signature/Working_with_Search_Collection/Signature_Ruby_Search_Collection_FromUrl.rb'
-require 'Verifying_Signature/Verify_Barcode_Signature/Signature_Ruby_Verify_Signature_Barcode.rb'
-require 'Verifying_Signature/Verify_Barcode_Signature/Signature_Ruby_Verify_Signature_Barcode_URL.rb'
-require 'Verifying_Signature/Verify_Digital_Signature/Signature_Ruby_Verify_Signature_Digital.rb'
-require 'Verifying_Signature/Verify_Digital_Signature/Signature_Ruby_Verify_Signature_Digital_URL.rb'
-require 'Verifying_Signature/Verify_QRCode_Signature/Signature_Ruby_Verify_Signature_QRCode.rb'
-require 'Verifying_Signature/Verify_QRCode_Signature/Signature_Ruby_Verify_Signature_QRCode_URL.rb'
-require 'Verifying_Signature/Verify_Text_Signature/Signature_Ruby_Verify_Signature_Text.rb'
-require 'Verifying_Signature/Verify_Text_Signature/Signature_Ruby_Verify_Signature_Text_URL.rb'
-require 'Verifying_Signature/Working_with_Verify_Collection/Signature_Ruby_Signature_Collection_Verify.rb'
-require 'Verifying_Signature/Working_with_Verify_Collection/Signature_Ruby_Signature_Collection_Verify_FromUrl.rb'
 require 'common_utilities/Utils.rb'
 
 # Get your app_sid and app_key at https://dashboard.groupdocs.cloud (free registration is required).
-$app_sid = "XXXXX-XXXXX-XXXXX-XXXX"
-$app_key = "XXXXXXXXXXXXXXX"
-$storageName = "MyStorage" #Put your storage name here
+$app_sid = "XXXX-XXX"
+$app_key = "XXXX"
+$myStorage = "MyStorage" #Put your storage name here
 $host_url = "http://api.groupdocs.cloud"   # Put your Host URL here
-$base_url = "http://api.groupdocs.cloud" #Put your Base URL here
 
 class Run_Examples
 
+  #  ##########################################
   #  puts("Executing Upload Test Files...")
   #  Common_Utilities.Upload_Test_File()
+  #  ##########################################
 
+  ###########################################
   #  # ******* Execute Examples *******
-  #  puts("*** Executing examples...")
+  puts("*** Executing examples...")
   #  # ******* Execute Examples *******
+  ###########################################
 
-  #  puts("* Executing Get_All_Supported_File_Formats...")
-  #  File_Formats.Get_All_Supported_File_Formats()
+  ##########################################
+  puts("*** Executing Supported_File_Formats...")
+  ##########################################
 
-  #  puts("* Executing Get_DocumentInfo_File...")
-  #  DocumentInfo_File.Get_DocumentInfo_File()
+  require 'Supported_File_Formats\Signature_Ruby_Get_Supported_Formats.rb'
+  puts("* Executing Signature_Ruby_Get_Supported_Formats...")
+  File_Formats.Signature_Ruby_Get_Supported_Formats()
 
-  #  puts("* Executing Get_DocumentInfo_From_Url...")
-  #  DocumentInfo_File.Get_DocumentInfo_From_Url()
-  #
-  #  puts("* Executing Get_All_Supported_Barcodes...")
-  #  Supported_Barcodes.Get_All_Supported_Barcodes()
+  #  ##########################################
+  #  puts("*** Executing Supported_Barcodes...")
+  #  ##########################################
 
-  #  puts("* Executing Get_All_Supported_QRcodes...")
-  #  Supported_QRcodes.Get_All_Supported_QRcodes()
+  #  require 'Supported_Barcodes\Signature_Ruby_Get_Supported_Barcodes.rb'
+  #  puts("* Executing Signature_Ruby_Get_Supported_Barcodes...")
+  #  Supported_Barcodes.Signature_Ruby_Get_Supported_Barcodes()
 
-  #  puts("* Executing Post_Signature_Barcode...")
-  #  Signature_Barcode.Post_Signature_Barcode()
+  #  ##########################################
+  #  puts("*** Executing Supported_QRCodes...")
+  #  ##########################################
 
-  #  puts("* Executing Post_Signature_Barcode_From_Url...")
-  #  Signature_Barcode_From_Url.Post_Signature_Barcode_From_Url()
+  #  require 'Supported_QRCodes\Signature_Ruby_Get_Supported_QRCodes.rb'
+  #  puts("* Executing Signature_Ruby_Get_Supported_QRCodes...")
+  #  Supported_QRCodes.Signature_Ruby_Get_Supported_QRCodes()
 
-  #  puts("* Executing Post_Signature_Digital...")
-  #  Signature_Digital.Post_Signature_Digital()
+  ###########################################
+  #  puts("*** Executing Working_With_Storage...")
+  ###########################################
 
-  #  puts("* Executing Post_Signature_Digital_From_Url...")
-  #  Signature_Digital_From_Url.Post_Signature_Digital_From_Url()
+  #  require 'Working_With_Storage/Signature_Ruby_Storage_Exist.rb'
+  #  puts("* Executing Signature_Ruby_Storage_Exist...")
+  #  Working_With_Storage.Signature_Ruby_Storage_Exist()
 
-  #  puts("* Executing Post_Signature_Image...")
-  #  Signature_Image.Post_Signature_Image()
+  #  require 'Working_With_Storage/Signature_Ruby_Object_Exists.rb'
+  #  puts("* Executing Signature_Ruby_Object_Exists...")
+  #  Working_With_Storage.Signature_Ruby_Object_Exists()
 
-  #  puts("* Executing Post_Signature_Image_From_Url...")
-  #  Signature_Image_From_Url.Post_Signature_Image_From_Url()
+  #  require 'Working_With_Storage/Signature_Ruby_Get_File_Versions.rb'
+  #  puts("* Executing Signature_Ruby_Get_File_Versions...")
+  #  Working_With_Storage.Signature_Ruby_Get_File_Versions()
 
-  #  puts("* Executing Post_Signature_QRCode...")
-  #  Signature_QRCode.Post_Signature_QRCode()
+  #  require 'Working_With_Storage/Signature_Ruby_Get_Disc_Usage.rb'
+  #  puts("* Executing Signature_Ruby_Get_Disc_Usage...")
+  #  Working_With_Storage.Signature_Ruby_Get_Disc_Usage()
 
-  #  puts("* Executing Post_Signature_QRCode_From_Url...")
-  #  Signature_QRCode_From_Url.Post_Signature_QRCode_From_Url()
+  #  ##########################################
+  #  puts("*** Executing Working_With_Folder...")
+  #  ##########################################
 
-  #  puts("* Executing Post_Signature_QRCode_Logo...")
-  #  Signature_QRCode_Logo.Post_Signature_QRCode_Logo()
+  #  require 'Working_With_Folder/Signature_Ruby_Create_Folder.rb'
+  #  puts("* Executing Signature_Ruby_Create_Folder...")
+  #  Working_With_Folder.Signature_Ruby_Create_Folder()
 
-  #  puts("* Executing Post_Signature_Collection...")
-  #  Signature_Collection.Post_Signature_Collection()
+  #  require 'Working_With_Folder/Signature_Ruby_Copy_Folder.rb'
+  #  puts("* Executing Signature_Ruby_Copy_Folder...")
+  #  Working_With_Folder.Signature_Ruby_Copy_Folder()
 
-  #  puts("* Executing Post_Signature_Collection_From_Url...")
-  #  Signature_Collection_From_Url.Post_Signature_Collection_From_Url()
+  #  require 'Working_With_Folder/Signature_Ruby_Get_Files_List.rb'
+  #  puts("* Executing Signature_Ruby_Get_Files_List...")
+  #  Working_With_Folder.Signature_Ruby_Get_Files_List()
 
-  #  puts("* Executing Post_Signature_Stamp...")
-  #  Signature_Stamp.Post_Signature_Stamp()
+  #  require 'Working_With_Folder/Signature_Ruby_Move_Folder.rb'
+  #  puts("* Executing Signature_Ruby_Move_Folder...")
+  #  Working_With_Folder.Signature_Ruby_Move_Folder()
 
-  #  puts("* Executing Post_Signature_Stamp_From_Url...")
-  #  Signature_Stamp_From_Url.Post_Signature_Stamp_From_Url()
+  #  require 'Working_With_Folder/Signature_Ruby_Delete_Folder.rb'
+  #  puts("* Executing Signature_Ruby_Delete_Folder...")
+  #  Working_With_Folder.Signature_Ruby_Delete_Folder()
 
-  #  puts("* Executing Post_Signature_Stamp_Background_Brush...")
-  #  Signature_Stamp_Background_Brush.Post_Signature_Stamp_Background_Brush()
+  #  ##########################################
+  #  puts("*** Executing Working_With_Files...")
+  #  ##########################################
 
-  #  puts("* Executing Post_Signature_Text...")
-  #  Signature_Text.Post_Signature_Text()
+  #  require 'Working_With_Files/Signature_Ruby_Upload_File.rb'
+  #  puts("* Executing Signature_Ruby_Upload_File...")
+  #  Working_With_Files.Signature_Ruby_Upload_File()
 
-  #  puts("* Executing Post_Signature_Text_From_Url...")
-  #  Signature_Text_From_Url.Post_Signature_Text_From_Url()
+  #  require 'Working_With_Files/Signature_Ruby_Download_File.rb'
+  #  puts("* Executing Signature_Ruby_Download_File...")
+  #  Working_With_Files.Signature_Ruby_Download_File()
 
-  #  puts("* Executing Post_Signature_Text_Background_Brush...")
-  #  Signature_Text_Background_Brush.Post_Signature_Text_Background_Brush()
+  #  require 'Working_With_Files/Signature_Ruby_Copy_File.rb'
+  #  puts("* Executing Signature_Ruby_Copy_File...")
+  #  Working_With_Files.Signature_Ruby_Copy_File()
 
-  #  puts("* Executing Post_Signature_Text_Align_Text...")
-  #  Signature_Text_Align_Text.Post_Signature_Text_Align_Text()
+  #  require 'Working_With_Files/Signature_Ruby_Move_File.rb'
+  #  puts("* Executing Signature_Ruby_Move_File...")
+  #  Working_With_Files.Signature_Ruby_Move_File()
 
-  #  puts("* Executing Post_Search_Signature_Barcode...")
-  #  Search_Signature_Barcode.Post_Search_Signature_Barcode()
+  #  require 'Working_With_Files/Signature_Ruby_Delete_File.rb'
+  #  puts("* Executing Signature_Ruby_Delete_File...")
+  #  Working_With_Files.Signature_Ruby_Delete_File()
 
-  #  puts("* Executing Post_Search_Signature_Barcode_From_Url...")
-  #  Search_Signature_Barcode_From_Url.Post_Search_Signature_Barcode_From_Url()
+  #  ##########################################
+  #  puts("*** Executing Document_Information...")
+  #  ##########################################
 
-  #  puts("* Executing Post_Search_Signature_Digital...")
-  #  Search_Signature_Digital.Post_Search_Signature_Digital()
+  #  require 'Document_Information\Signature_Ruby_Get_Document_Information.rb'
+  #  puts("* Executing Signature_Ruby_Get_Document_Information...")
+  #  Document_Info.Signature_Ruby_Get_Document_Information()
 
-  #  puts("* Executing Post_Search_Signature_Digital_From_Url...")
-  #  Search_Signature_Digital_From_Url.Post_Search_Signature_Digital_From_Url()
+  #  ##########################################
+  #  puts("*** Executing Signing_Documents...")
+  #  ##########################################
 
-  #  puts("* Executing Post_Search_Signature_QRCode...")
-  #  Search_Signature_QRCode.Post_Search_Signature_QRCode()
+  #  require 'Signing_Documents\Signature_Ruby_Barcode_Signature.rb'
+  #  puts("* Executing Signature_Ruby_Barcode_Signature...")
+  #  Signing_Documents.Signature_Ruby_Barcode_Signature()
 
-  #  puts("* Executing Post_Search_Signature_QRCode_From_Url...")
-  #  Search_Signature_QRCode_From_Url.Post_Search_Signature_QRCode_From_Url()
+  #  require 'Signing_Documents\Signature_Ruby_QRCode_Signature.rb'
+  #  puts("* Executing Signature_Ruby_QRCode_Signature...")
+  #  Signing_Documents.Signature_Ruby_QRCode_Signature()
 
-  #  puts("* Executing Post_Search_Collection...")
-  #  Search_Collection.Post_Search_Collection()
+  #  require 'Signing_Documents\Signature_Ruby_Digital_Signature.rb'
+  #  puts("* Executing Signature_Ruby_Digital_Signature...")
+  #  Signing_Documents.Signature_Ruby_Digital_Signature()
 
-  #  puts("* Executing Post_Search_Collection_From_Url...")
-  #  Search_Collection_From_Url.Post_Search_Collection_From_Url()
+  #  require 'Signing_Documents\Signature_Ruby_Image_Signature.rb'
+  #  puts("* Executing Signature_Ruby_Image_Signature...")
+  #  Signing_Documents.Signature_Ruby_Image_Signature()
 
-  #  puts("* Executing Post_Verify_Signature_Barcode...")
-  #  Verify_Signature_Barcode.Post_Verify_Signature_Barcode()
+  #  require 'Signing_Documents\Signature_Ruby_Stamp_Signature.rb'
+  #  puts("* Executing Signature_Ruby_Stamp_Signature...")
+  #  Signing_Documents.Signature_Ruby_Stamp_Signature()
 
-  #  puts("* Executing Post_Verify_Signature_Barcode_From_Url...")
-  #  Verify_Signature_Barcode_From_Url.Post_Verify_Signature_Barcode_From_Url()
+  #  require 'Signing_Documents\Signature_Ruby_Text_Signature.rb'
+  #  puts("* Executing Signature_Ruby_Text_Signature...")
+  #  Signing_Documents.Signature_Ruby_Text_Signature()
 
-  #  puts("* Executing Post_Verify_Signature_Digital...")
-  #  Verify_Signature_Digital.Post_Verify_Signature_Digital()
+  #  require 'Signing_Documents\Signature_Ruby_Collection_Signature.rb'
+  #  puts("* Executing Signature_Ruby_Collection_Signature...")
+  #  Signing_Documents.Signature_Ruby_Collection_Signature()
 
-  #  puts("* Executing Post_Verify_Signature_Digital_From_Url...")
-  #  Verify_Signature_Digital_From_Url.Post_Verify_Signature_Digital_From_Url()
+  #  ##########################################
+  #  puts("*** Executing Search_Signature...")
+  #  ##########################################
 
-  #  puts("* Executing Post_Verify_Signature_QRCode...")
-  #  Verify_Signature_QRCode.Post_Verify_Signature_QRCode()
+  #  require 'Search_Signature\Signature_Ruby_Search_Barcode_Signature.rb'
+  #  puts("* Executing Signature_Ruby_Search_Barcode_Signature...")
+  #  Search_Signature.Signature_Ruby_Search_Barcode_Signature()
 
-  #  puts("* Executing Post_Verify_Signature_QRCode...")
-  #  Verify_Signature_QRCode_From_Url.Post_Verify_Signature_QRCode_From_Url()
+  #  require 'Search_Signature\Signature_Ruby_Search_QRCode_Signature.rb'
+  #  puts("* Executing Signature_Ruby_Search_QRCode_Signature...")
+  #  Search_Signature.Signature_Ruby_Search_QRCode_Signature()
 
-  #  puts("* Executing Post_Verify_Signature_Text...")
-  #  Verify_Signature_Text.Post_Verify_Signature_Text()
+  #  require 'Search_Signature\Signature_Ruby_Search_Digital_Signature.rb'
+  #  puts("* Executing Signature_Ruby_Search_Digital_Signature...")
+  #  Search_Signature.Signature_Ruby_Search_Digital_Signature()
 
-  #  puts("* Executing Post_Verify_Signature_Text_From_Url...")
-  #  Verify_Signature_Text_From_Url.Post_Verify_Signature_Text_From_Url()
+  #  require 'Search_Signature\Signature_Ruby_Search_Collection_Signature.rb'
+  #  puts("* Executing Signature_Ruby_Search_Collection_Signature...")
+  #  Search_Signature.Signature_Ruby_Search_Collection_Signature()
 
-  #  puts("* Executing Post_Verify_Signature_Collection...")
-  #  Verify_Signature_Collection.Post_Verify_Signature_Collection()
+  #  ##########################################
+  #  puts("*** Executing Verify_Signature...")
+  #  ##########################################
 
-  #  puts("* Executing Post_Verify_Signature_Collection_From_Url...")
-  #  Verify_Signature_Collection_From_Url.Post_Verify_Signature_Collection_From_Url()
+  #  require 'Verify_Signature\Signature_Ruby_Verify_Barcode_Signature.rb'
+  #  puts("* Executing Signature_Ruby_Verify_Barcode_Signature...")
+  #  Verify_Signature.Signature_Ruby_Verify_Barcode_Signature()
+
+  #  require 'Verify_Signature\Signature_Ruby_Verify_QRCode_Signature.rb'
+  #  puts("* Executing Signature_Ruby_Verify_QRCode_Signature...")
+  #  Verify_Signature.Signature_Ruby_Verify_QRCode_Signature()
+
+  #  require 'Verify_Signature\Signature_Ruby_Verify_Digital_Signature.rb'
+  #  puts("* Executing Signature_Ruby_Verify_Digital_Signature...")
+  #  Verify_Signature.Signature_Ruby_Verify_Digital_Signature()
+
+  #  require 'Verify_Signature\Signature_Ruby_Verify_Text_Signature.rb'
+  #  puts("* Executing Signature_Ruby_Verify_Text_Signature...")
+  #  Verify_Signature.Signature_Ruby_Verify_Text_Signature()
+
+  #  require 'Verify_Signature\Signature_Ruby_Verify_Collection_Signature.rb'
+  #  puts("* Executing Signature_Ruby_Verify_Collection_Signature...")
+  #  Verify_Signature.Signature_Ruby_Verify_Collection_Signature()
 
 end
