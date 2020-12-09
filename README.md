@@ -12,17 +12,17 @@ This repository contains [Examples](Examples) projects for [GroupDocs.Signature 
 ## Prerequisites
 
 + Ruby with Gem installed
-+ Get your AppSID and AppKey at [https://dashboard.groupdocs.cloud](https://dashboard.groupdocs.cloud) (free registration is required).
++ Get your ClientId and ClientSecret at [https://dashboard.groupdocs.cloud](https://dashboard.groupdocs.cloud) (free registration is required).
 
 ## How to Run the Examples?
 
 The package contains Ruby examples. Follow the given steps to proceed run:
 
-* Extract the downloaded project
-* Edit RunExamples.rb and put appSid and appKey, obtained from [https://dashboard.groupdocs.cloud](https://dashboard.groupdocs.cloud) there
-* Go to "Examples" directory of the project
-* Execute "gem install groupdocs_signature_cloud" command
-* Run examples using "ruby RunExamples.rb" command
++ Extract the downloaded project
++ Edit RunExamples.rb and put ClientId and ClientSecret, obtained from [https://dashboard.groupdocs.cloud](https://dashboard.groupdocs.cloud) there
++ Go to "Examples" directory of the project
++ Execute "gem install groupdocs_signature_cloud" command
++ Run examples using "ruby RunExamples.rb" command
 
 For more details, visit  [Getting Started](https://docs.groupdocs.cloud/signature/getting-started/).
 
